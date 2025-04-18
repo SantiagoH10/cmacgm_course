@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Stage Chez CMA CGM</title>
+    <style>
+        :root {
+            --primary: #0D173F;
+            --secondary: #FF0000;
+            --accent: #FF0000;
+            --dark: #0D173F;
+            --light: #FFFFFF;
+            --gray: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 83, 147, 0.8), rgba(10, 83, 147, 0.8)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-heading h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-heading p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .testimonials .section-heading h2 {
+            color: white;
+        }
+        
+        .testimonials .section-heading p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--accent);
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Curriculum Section */
+        .curriculum {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .curriculum-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .curriculum-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .curriculum-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .curriculum-item h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .curriculum-item h3 span {
+            background-color: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+        
+        /* Price Section */
+        .pricing {
+            padding: 80px 0;
+        }
+        
+        .price-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .price-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .price-header h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .price span {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        
+        .price-features {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .price-features ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .faq-item h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .section-heading h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">StageExpert</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Mon Stage Chez CMA CGM</h1>
+            <p>Le guide complet pour réussir le processus d'entretien, comprendre l'industrie maritime, et bénéficier des conseils d'anciens stagiaires qui ont obtenu des postes permanents.</p>
+            <a href="https://payhip.com/" class="btn btn-primary">Commencer Maintenant</a>
+            <a href="#curriculum" class="btn btn-secondary">Voir le Programme</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Ce Que Vous Apprendrez</h2>
+                <p>Notre formation complète vous fournit tout ce dont vous avez besoin pour obtenir et exceller dans un stage au sein de l'une des plus grandes compagnies maritimes du monde.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Maîtrise de l'Entretien</h3>
+                    <p>Découvrez exactement ce que recherchent les recruteurs de CMA CGM, les questions fréquentes, et comment préparer des réponses gagnantes qui mettent en valeur votre potentiel.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚢</div>
+                    <h3>Connaissance du Secteur</h3>
+                    <p>Acquérez une compréhension approfondie de l'industrie maritime, la terminologie clé, les tendances actuelles, et la position de CMA CGM sur le marché mondial.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Perspectives d'Initiés</h3>
+                    <p>Bénéficiez d'entretiens exclusifs avec d'anciens stagiaires qui ont réussi à transformer leur stage en poste permanent chez CMA CGM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Témoignages de Réussite</h2>
+                <p>Écoutez les diplômés qui ont utilisé notre cours pour obtenir leur stage de rêve chez CMA CGM.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Les conseils de cette formation ont été inestimables. J'ai pu naviguer dans le processus d'entretien avec confiance et parler en connaissance de cause du secteur. Trois mois après mon stage, on m'a proposé un poste permanent !"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Sophie Laurent</h4>
+                            <p>Coordinatrice Logistique, CMA CGM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Sans cette formation, j'aurais été totalement mal préparé pour les questions techniques lors de mon entretien. La section sur les connaissances du secteur maritime m'a donné la confiance nécessaire pour discuter des tendances du commerce mondial qui ont impressionné mon intervieweur."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Thomas Moreau</h4>
+                            <p>Analyste des Opérations, CMA CGM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "La partie la plus précieuse était d'apprendre directement d'anciens stagiaires qui ont partagé leurs expériences quotidiennes. Je savais exactement à quoi m'attendre et comment tirer le meilleur parti de mon opportunité de stage."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Élodie Chen</h4>
+                            <p>Développement Commercial, CMA CGM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Programme de Formation</h2>
+                <p>Notre approche structurée vous assure d'être parfaitement préparé à chaque étape de votre parcours.</p>
+            </div>
+            
+            <div class="curriculum-list">
+                <div class="curriculum-item">
+                    <h3><span>1</span>CMA CGM & L'Industrie Maritime</h3>
+                    <p>Comprenez l'histoire de l'entreprise, sa présence mondiale, son modèle d'affaires et son rôle dans le transport maritime international. Apprenez la terminologie et les concepts clés du secteur qui vous démarqueront.</p>
+                </div>
+                
+                <div class="curriculum-item">
+                    <h3><span>2</span>Stratégie de Candidature & Rédaction de CV</h3>
+                    <p>Découvrez exactement ce que les recruteurs recherchent dans les candidatures, comment mettre en valeur votre expérience pertinente, et personnaliser votre CV pour vous démarquer parmi des centaines de candidats.</p>
+                </div>
+                
+                <div class="curriculum-item">
+                    <h3><span>3</span>Préparation & Pratique d'Entretien</h3>
+                    <p>Maîtrisez les questions d'entretien courantes spécifiques à CMA CGM, entraînez-vous avec des simulations d'entretiens, et apprenez à communiquer efficacement votre proposition de valeur.</p>
+                </div>
+                
+                <div class="curriculum-item">
+                    <h3><span>4</span>À l'Intérieur du Programme de Stage</h3>
+                    <p>Analyse détaillée des différents départements, rôles et responsabilités. Comprenez l'expérience quotidienne et comment maximiser vos opportunités d'apprentissage.</p>
+                </div>
+                
+                <div class="curriculum-item">
+                    <h3><span>5</span>Du Stage à l'Emploi Permanent</h3>
+                    <p>Stratégies pour faire une impression durable, réseauter efficacement au sein de l'entreprise, et vous positionner pour une offre de poste permanent.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://payhip.com/" class="btn btn-primary">S'inscrire Maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Investissez dans Votre Avenir</h2>
+                <p>Un petit investissement aujourd'hui peut mener à une carrière gratifiante demain.</p>
+            </div>
+            
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Guide Complet de Stage chez CMA CGM</h3>
+                    <div class="price">97€ <span>paiement unique</span></div>
+                </div>
+                
+                <div class="price-features">
+                    <ul>
+                        <li>✅ 5 Modules Complets</li>
+                        <li>✅ Plus de 20 Leçons Vidéo</li>
+                        <li>✅ Ressources & Modèles Téléchargeables</li>
+                        <li>✅ Base de Données de Questions d'Entretien</li>
+                        <li>✅ 3 Études de Cas Approfondies</li>
+                        <li>✅ Entretiens Exclusifs avec d'Anciens Stagiaires</li>
+                        <li>✅ Accès à Vie & Mises à Jour</li>
+                    </ul>
+                    
+                    <a href="https://payhip.com/" class="btn btn-primary">Accès Immédiat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Questions Fréquemment Posées</h2>
+                <p>Obtenez des réponses aux questions les plus courantes sur notre formation.</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Pendant combien de temps ai-je accès au cours ?</h3>
+                    <div class="faq-answer">
+                        <p>Vous aurez un accès à vie à tous les supports de cours, y compris aux futures mises à jour et ajouts. Une fois votre achat effectué, le contenu vous appartient pour toujours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Ce cours est-il uniquement destiné à des types spécifiques de stages chez CMA CGM ?</h3>
+                    <div class="faq-answer">
+                        <p>Bien que nous couvrions certains départements en détail, le cours fournit des informations précieuses pour tout poste de stage chez CMA CGM. Les sections sur la culture d'entreprise, le processus d'entretien et les connaissances du secteur sont applicables à tous les départements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Ai-je besoin de connaissances préalables sur l'industrie maritime ?</h3>
+                    <div class="faq-answer">
+                        <p>Pas du tout ! Notre cours est conçu à la fois pour les nouveaux venus dans l'industrie et pour ceux qui ont déjà des connaissances de base. Nous commençons par les fondamentaux et progressons vers des concepts plus avancés.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Est-ce que cela me garantit un stage chez CMA CGM ?</h3>
+                    <div class="faq-answer">
+                        <p>Bien que nous ne puissions pas garantir un placement, notre cours augmente considérablement vos chances en vous fournissant des connaissances d'initiés et des stratégies éprouvées qui ont fonctionné pour de nombreux candidats. Votre préparation et votre performance lors de l'entretien déterminent finalement le résultat.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Comment le cours est-il dispensé ?</h3>
+                    <div class="faq-answer">
+                        <p>Le cours est dispensé via notre plateforme en ligne, qui comprend des leçons vidéo, des ressources téléchargeables et des éléments interactifs. Vous pouvez accéder au matériel à votre propre rythme depuis n'importe quel appareil connecté à Internet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://payhip.com/" class="btn btn-primary">Commencez Aujourd'hui</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à Lancer Votre Carrière chez CMA CGM ?</h2>
+            <p>Rejoignez des centaines d'étudiants qui ont transformé leur opportunité de stage en une carrière enrichissante au sein de l'une des principales compagnies maritimes mondiales.</p>
+            <a href="https://payhip.com/" class="btn btn-primary">S'inscrire Maintenant</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>StageExpert</h3>
+                    <p>Aide les étudiants ambitieux à obtenir leur stage de rêve et à lancer des carrières réussies dans l'industrie maritime mondiale.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#features">Caractéristiques du Cours</a></li>
+                        <li><a href="#curriculum">Programme</a></li>
+                        <li><a href="#testimonials">Témoignages</a></li>
+                        <li><a href="#pricing">Tarifs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Nous Contacter</a></li>
+                        <li><a href="#">Politique de Confidentialité</a></li>
+                        <li><a href="#">Conditions d'Utilisation
+</body>
+</html>
