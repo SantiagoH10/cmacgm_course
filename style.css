@@ -77,7 +77,7 @@ header {
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(10, 83, 147, 0.8), rgba(10, 83, 147, 0.8)), 
-                url('../images/tour_cma.webp') center/cover no-repeat;
+                url('images/tour_cma.webp') center/cover no-repeat;
     color: white;
     padding: 100px 0;
     text-align: center;
@@ -290,7 +290,7 @@ header {
     padding: 100px 0;
     text-align: center;
     background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
-                url('../images/cma_cgm_vessel.jpg') center center/cover no-repeat; /* Ensure the image is centered */
+                url('images/cma_cgm_vessel.jpg') center center/cover no-repeat; /* Ensure the image is centered */
     color: white;
     position: relative;
     overflow: hidden;
